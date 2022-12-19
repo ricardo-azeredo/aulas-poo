@@ -19,7 +19,7 @@ class UsuarioDaoMysql implements UsuarioDAO {
         $usuario->setId($this->pdo->lastInsertId());
         return $usuario;
     }
-    
+
     public function findAll(){
         $array = [];
 
@@ -56,10 +56,28 @@ class UsuarioDaoMysql implements UsuarioDAO {
     }
 
     public function findById($id){
+        $sql = $this->pdo->prepare("SELECT * FROM tbl_usuarios WHERE id = :id");
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+        if($sql->rowCount() > 0) {
+            $data = $sql->fetch();
+            $usuario = new Usuario();
+            $usuario->setNome($data['nome']);
+            $usuario->setEmail($data['email']);
 
+            return $usuario;
+        } else {
+            return false;
+        }
     }
     public function update(Usuario $suario){
+        $sql = $this->pdo->prepare("UPDATE tbl_usuarios SET nome = :nome, email = :email WHERE id = :id");
+        $sql->bindValue(':nome',$suario->getNome());
+        $sql->bindValue(':email',$suario->getEmail());
+        $sql->bindValue(':id',$suario->getId());
+        $sql->execute();
 
+        return true;
     }
     public function delete($id){
 
