@@ -1,6 +1,6 @@
 <?php
 
-$dbname = "cad_alunos_db";
+$dbname = "dao1_db";
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = 'root';

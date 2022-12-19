@@ -11,7 +11,7 @@ $lista = $usuarioDao->findAll();
 ?>
 <div class="container">
     <h1>Home</h1>
-    
+    <a type="button" class="btn btn-primary" href="cadastrar.php">ADICIONAR USUÁRIO</a>
     <table class="table">
         <tr>
             <th>#id</th>

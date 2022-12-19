@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    ob_start();
+
     require 'config.php';
     require 'head.php';
     require 'header.php';
@@ -9,8 +8,10 @@
     $usuarioDao = new UsuarioDaoMysql($pdo);
     $usuario = false;
     $id = filter_input(INPUT_GET,'id');
+    
     if($id){
         $usuario = $usuarioDao->findById($id);
+        
     }
     if($usuario === false){
         header("Location: index.php");
@@ -20,7 +21,7 @@
 
 <div class="container">
     <h1>Editar Usuário</h1>
-
+ 
     <form action="editar_action.php" method="post" class="mb-4">
         <input type="hidden" name="id" value="<?=$usuario->getId();?>">
         <div class="mb-3">

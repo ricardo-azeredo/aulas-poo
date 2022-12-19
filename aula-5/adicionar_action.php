@@ -5,7 +5,7 @@ require 'dao/UsuarioDaoMysql.php';
 $usuarioDao = new UsuarioDaoMysql($pdo);
 
 $name = filter_input(INPUT_POST, 'name');
-$name = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 if($name && $email) {
 
@@ -19,11 +19,14 @@ if($name && $email) {
         header("Location: index.php");
         exit;
     } else {
-        header("Location: adicionar.php");
-        exit;
+        echo 'Else do if usuarioDAO';
+        // header("Location: cadastrar.php");
+        // exit;
     }
 
 } else {
-    header("Location: adicionar.php");
-    exit;
+    echo "nome $name e email $email";
+    echo 'Else do usuario e email';
+    // header("Location: cadastrar.php");
+    // exit;
 }
