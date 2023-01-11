@@ -46,7 +46,7 @@
             </a>
            <a
             target="_blank"
-            href="hhttps://drive.google.com/drive/folders/189B5i433BePA0EMVzlQ9tkKpq3Pnqfff?usp=sharing"
+            href="https://drive.google.com/drive/folders/189B5i433BePA0EMVzlQ9tkKpq3Pnqfff?usp=sharing"
             >
                 Arquivos Java para IDE
             </a>
